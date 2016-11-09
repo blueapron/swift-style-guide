@@ -22,6 +22,7 @@ Writing Objective-C? Check out our [Objective-C Style Guide](https://github.com/
   * [Unused Code](#unused-code)
   * [Minimal Imports](#minimal-imports)
 * [Spacing](#spacing)
+* [New Lines](#new-lines)
 * [Comments](#comments)
 * [Classes and Structures](#classes-and-structures)
   * [Use of Self](#use-of-self)
@@ -356,12 +357,30 @@ class TestDatabase : Database {
 }
 ```
 
+## New Lines
+
+New lines should be used to separate closures and functionality within closures.
+
+Always include a blank line after a closing brace (`}`), and never after an opening brace (`{`).
+
 ## Comments
 
 When they are needed, use comments to explain **why** a particular piece of code does something. Comments must be kept up-to-date or deleted.
 
 Avoid block comments inline with code, as the code should be as self-documenting as possible. *Exception: This does not apply to those comments used to generate documentation.*
 
+Files should not include the default Xcode attribution header:
+
+**Not Preferred:**
+```swift
+//
+//  NotificationViewController.swift
+//  BlueApron
+//
+//  Created by Rob Lester on 11/23/15.
+//  Copyright © 2015 Blue Apron. All rights reserved.
+//
+```
 
 ## Classes and Structures
 
@@ -616,6 +635,26 @@ Use optional binding when it's more convenient to unwrap once and perform multip
 ```swift
 if let textContainer = self.textContainer {
   // do many things with textContainer
+}
+```
+
+While it is fine to split an `if let` into multiple lines when several variables are present, the first variable should be delcared on the same line as the if:
+
+**Preferred:**
+```swift
+if let subview = subview,
+   volume = volume {
+  // do something with unwrapped subview and volume
+}
+```
+
+**Not Preferred:**
+```swift
+if 
+  let unwrappedSubview = optionalSubview,
+  realVolume = volume {
+    // do something with unwrappedSubview and realVolume
+  }
 }
 ```
 
