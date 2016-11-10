@@ -362,6 +362,18 @@ When they are needed, use comments to explain **why** a particular piece of code
 
 Avoid block comments inline with code, as the code should be as self-documenting as possible. *Exception: This does not apply to those comments used to generate documentation.*
 
+Files should not include the default Xcode attribution header:
+ 
+**Not Preferred:**
+```swift
+//
+//  NotificationViewController.swift
+//  BlueApron
+//
+//  Created by Rob Lester on 11/23/15.
+//  Copyright © 2015 Blue Apron. All rights reserved.
+//
+```
 
 ## Classes and Structures
 
