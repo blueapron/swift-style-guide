@@ -459,6 +459,50 @@ var diameter: Double {
 }
 ```
 
+When the computational overhead is small, a computed property is preferred to a function that takes no parameters and returns a value. Use a function to signal to the caller that the computation is non-trivial. E.g. 
+
+**Preferred**
+```swift
+var urlString: String?  {
+  var components = URLComponents()
+  components.scheme = "blueapron"
+  component.host = identifier
+  return components.url?.absoluteString
+}
+```
+
+```swift
+var func toTokens() -> [String]  {
+    let scanner = Scanner()
+    var tokens = [String]()
+     while !(scanner.isAtEnd) {
+        // Complex parsing of a potentially long string
+    }
+    return tokens
+}
+```
+
+**Not preferred**
+```swift
+func toURL() -> URL {
+  var components = URLComponents()
+  components.scheme = "blueapron"
+  component.host = identifier
+  return components.url?.absoluteString
+}
+```
+
+```swift
+var tokens: [String]  {
+    let scanner = Scanner()
+    var tokens = [String]()
+     while !(scanner.isAtEnd) {
+        // Lots of parsing of a potentially long string
+    }
+    return tokens
+}
+```
+
 ### Final
 
 Marking classes or members as `final` in tutorials can distract from the main topic and is not required. Nevertheless, use of `final` can sometimes clarify your intent and is worth the cost. In the below example, `Box` has a particular purpose and customization in a derived class is not intended. Marking it `final` makes that clear.
