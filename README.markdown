@@ -463,7 +463,7 @@ When the computational overhead is small, a computed property is preferred to a 
 
 **Preferred**
 ```swift
-var urlString: String?  {
+var urlString: String? {
   var components = URLComponents()
   components.scheme = "blueapron"
   component.host = identifier
@@ -472,10 +472,10 @@ var urlString: String?  {
 ```
 
 ```swift
-var func toTokens() -> [String]  {
+func toTokens() -> [String] {
     let scanner = Scanner()
     var tokens = [String]()
-     while !(scanner.isAtEnd) {
+    while !(scanner.isAtEnd) {
         // Complex parsing of a potentially long string
     }
     return tokens
@@ -493,10 +493,10 @@ func toURL() -> URL {
 ```
 
 ```swift
-var tokens: [String]  {
+var tokens: [String] {
     let scanner = Scanner()
     var tokens = [String]()
-     while !(scanner.isAtEnd) {
+    while !(scanner.isAtEnd) {
         // Lots of parsing of a potentially long string
     }
     return tokens
